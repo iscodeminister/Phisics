@@ -8,7 +8,7 @@ import csv
 L=15 #箱子長度
 bangles=[15,30,45,60,75]
 scene = canvas(title="拋體運動", width=800, height=400, x=0, y=0)
-floor = box(length=L, height=0.02, width=10)
+floor = box(pos=vec(0,0,0),length=L, height=0.02, width=10)
 
 csvFile = open('out.csv','w',newline='') #csv
 Writer = csv.writer(csvFile)
