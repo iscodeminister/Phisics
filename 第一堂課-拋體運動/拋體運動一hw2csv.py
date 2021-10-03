@@ -3,14 +3,15 @@ from vpython import *
 import csv
 
 """
-設計場景
+設計場景 假設人高180
 """
 L=15 #箱子長度
 bangles=[15,30,45,60,75]
 scene = canvas(title="拋體運動", width=800, height=400, x=0, y=0)
 floor = box(pos=vec(0,0,0),length=L, height=0.02, width=10)
+#man = box(pos=(),length=L, height=0.02, width=1)
 
-csvFile = open('out.csv','w',newline='') #csv
+csvFile = open('out3.csv','w',newline='') #csv
 Writer = csv.writer(csvFile)
 Writer.writerow(['Angle','Distance'])
 
@@ -30,7 +31,7 @@ for bangle in bangles:
 	elif ran==5:
 		ball = sphere(radius=0.05,make_trail=True,color=color.white)
 	ball.pos.x = -floor.length/2
-	ball.pos.y = ball.radius+floor.height/2
+	ball.pos.y = ball.radius+floor.height/2+1.8
 	ball.y0 = ball.pos.y
 	ball.m = 0.1 
 	ball.v0 = 10
