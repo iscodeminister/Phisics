@@ -11,7 +11,7 @@
       用vpython繪製一個平面(地板)，一個待發射的球體，並指定5種不同的角度(15的倍數)<br>
       給定球的初速以及重量以及重力常數後作運算[程式碼](/第一堂課-拋體運動/拋體運動一csv.py)<br>
       ```ball.pos.x = -floor.length/2
-	  ball.pos.y = ball.radius+floor.  height/2
+	  ball.pos.y = ball.radius+floor.height/2
 	  ball.y0 = ball.pos.y
 	  ball.m = 0.1 
 	  ball.v0 = 10
