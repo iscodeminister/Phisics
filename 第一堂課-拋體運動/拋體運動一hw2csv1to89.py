@@ -46,7 +46,7 @@ for bangle in range(1,90):
 
 		ball.pos = ball.pos+ball.v*dt	
 		ball.v = ball.v+ball.a*dt		
-		rate(1000)
+		rate(5000)
 
 	bdist=ball.pos.x + L/2
 	print("在拋射角為",bangle,"度時,球飛了",bdist,"公尺",sep='')
