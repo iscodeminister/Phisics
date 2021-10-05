@@ -16,7 +16,6 @@
 	  ball.m = 0.1 
 	  ball.v0 = 10
       ``` 
-      <br>
       運算完之後以以圖表確認並輸出csv紀錄實驗數據<br><br>
   - 做出來的結果<br>
       ![This is an image](/第一堂課-拋體運動/實驗成果.png)<br>
