@@ -13,25 +13,15 @@ bx=-floor.length/2
 by=floor.height/2+0.9
 man = box(pos=vector(bx,by,0),length=0.3, height=1.8, width=1)
 
-csvFile = open('out3.csv','w',newline='') #csv
+csvFile = open('out4.csv','w',newline='') #csv
 Writer = csv.writer(csvFile)
 Writer.writerow(['Angle','Distance'])
 
 """
 計算迴圈
 """
-for bangle in bangles:
-	ran=bangle/15 #判斷角度
-	if ran==1:
-		ball = sphere(radius=0.05,make_trail=True,color=color.red)
-	elif ran==2:
-		ball = sphere(radius=0.05,make_trail=True,color=color.green)
-	elif ran==3:
-		ball = sphere(radius=0.05,make_trail=True,color=color.purple)
-	elif ran==4:
-		ball = sphere(radius=0.05,make_trail=True,color=color.blue)
-	elif ran==5:
-		ball = sphere(radius=0.05,make_trail=True,color=color.white)
+for bangle in range(1,90):
+	ball = sphere(radius=0.05,make_trail=True,color=color.red)
 	ball.pos.x = -floor.length/2
 	ball.pos.y = ball.radius+floor.height/2+1.8
 	ball.y0 = ball.pos.y
