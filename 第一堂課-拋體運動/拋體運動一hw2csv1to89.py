@@ -21,7 +21,10 @@ Writer.writerow(['Angle','Distance'])
 計算迴圈
 """
 for bangle in range(1,90):
-	ball = sphere(radius=0.05,make_trail=True,color=color.red)
+	if bangle==45:
+	  ball = sphere(radius=0.05,make_trail=True,color=color.green)
+	else:
+	  ball = sphere(radius=0.05,make_trail=True,color=color.red)
 	ball.pos.x = -floor.length/2
 	ball.pos.y = ball.radius+floor.height/2+1.8
 	ball.y0 = ball.pos.y
