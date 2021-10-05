@@ -10,8 +10,8 @@ bangles=[15,30,45,60,75]
 scene = canvas(title="拋體運動", width=800, height=400, x=0, y=0)
 floor = box(pos=vec(0,0,0),length=L, height=0.02, width=10)
 bx=-floor.length/2
-by=floor.height/2
-man = box(pos=(bx,by,0),length=0.5, height=1.8, width=1)
+by=floor.height/2+0.9
+man = box(pos=vector(bx,by,0),length=0.5, height=1.8, width=1)
 
 csvFile = open('out3.csv','w',newline='') #csv
 Writer = csv.writer(csvFile)
@@ -52,7 +52,7 @@ for bangle in bangles:
 
 	dt = 0.0001
 
-	while ball.pos.y >= ball.y0: 	
+	while ball.pos.y >= ball.y0-1.8: 	
 
 		ball.pos = ball.pos+ball.v*dt	
 		ball.v = ball.v+ball.a*dt		
