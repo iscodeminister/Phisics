@@ -27,7 +27,7 @@ def
 """
 bally = radius + floor.height/2
 ball_a = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0),interval=10,color=color.green,opacity=0.4) #不考慮空氣阻力的透明球
-ball_b = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0.2),interval=10,color=color.white) #考慮空氣阻力的球
+ball_b = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0.2),interval=10,color=color.yellow) #考慮空氣阻力的球
 scene.camera.follow(ball_b)
 #ball a
 #ball_a.pos.y = ball_a.radius+floor.height/2
@@ -74,8 +74,16 @@ while True:
 		ball_b.a = g + (-b*ball_b.v/ball_b.m)
 		ball_b.v += ball_b.a*dt
 
-
-
+ballalabel = label(pos=ball_a.pos,
+    text=ball_a.pos.x, xoffset=20,
+    yoffset=12, space=ball_a.radius,
+    height=8, border=2,
+    font='sans')
+ballblabel = label(pos=ball_b.pos,
+    text=ball_b.pos.x, xoffset=20,
+    yoffset=25, space=ball_b.radius,
+    height=8, border=2,
+    font='sans')
 
 print("球A飛了",ball_a.pos.x,"公尺",sep='')
 print("球B飛了",ball_b.pos.x,"公尺",sep='')
