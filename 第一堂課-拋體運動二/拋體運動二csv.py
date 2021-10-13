@@ -77,12 +77,12 @@ while True:
 ballalabel = label(pos=ball_a.pos,
     text=ball_a.pos.x, xoffset=20,
     yoffset=12, space=ball_a.radius,
-    height=8, border=2,
+    height=8, border=1,
     font='sans')
 ballblabel = label(pos=ball_b.pos,
     text=ball_b.pos.x, xoffset=20,
     yoffset=25, space=ball_b.radius,
-    height=8, border=2,
+    height=8, border=1,
     font='sans')
 
 print("球A飛了",ball_a.pos.x,"公尺",sep='')
