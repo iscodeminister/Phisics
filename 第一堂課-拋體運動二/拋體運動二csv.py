@@ -13,7 +13,7 @@ arrow(axis=vector(0,1,0),color=vector(0,1,0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,0,1),color=vector(0,0,1),shaftwidth=0.02,opacity=0.4)
 mass = 0.0567
 v0 = 8
-radius = 0.06541
+radius = 0.06858/2
 bangle=45
 the= radians(bangle)
 g = vector(0,-9.8,0) 
