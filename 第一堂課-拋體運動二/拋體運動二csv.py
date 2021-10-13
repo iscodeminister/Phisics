@@ -6,8 +6,7 @@ import csv
 設計場景
 """
 L=15 #箱子長度
-scene = canvas(title="拋體運動\\(\\vec{f}\\)", width=800, height=400, x=0, y=0)
-scene.caption = "\\( \\vec{f} \\)"
+scene = canvas(title="拋體運動二", width=800, height=400, x=0, y=0)
 floor = box(pos=vec(0,0,0),length=L, height=0.01, width=8,opacity=0.5)
 arrow(axis=vector(1,0,0),color=vector(1,0,0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,1,0),color=vector(0,1,0),shaftwidth=0.02,opacity=0.4)
@@ -21,7 +20,7 @@ g = vector(0,-9.8,0)
 
 csvFile = open('out.csv','w',newline='') #csv
 Writer = csv.writer(csvFile)
-Writer.writerow(['Angle','Distance'])
+Writer.writerow(['Ball','Distance'])
 
 """
 def
@@ -76,13 +75,9 @@ while True:
 		ball_b.v += ball_b.a*dt
 
 
-
-''''
-bdist=ball.pos.x + L/2
-print("在拋射角為",bangle,"度時,球飛了",bdist,"公尺",sep='')
-Writer.writerow([bangle,bdist])
-ball = sphere(radius=0.05,make_trail=False,color=color.red)
-
+print("球A飛了",ball_a.pos.x,"公尺",sep='')
+print("球B飛了",ball_b.pos.x,"公尺",sep='')
+Writer.writerow(["A",ball_a.pos.x])
+Writer.writerow(["B",ball_b.pos.x])
 
 csvFile.close()
-'''
