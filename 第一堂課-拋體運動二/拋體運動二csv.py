@@ -12,7 +12,7 @@ arrow(axis=vector(1,0,0),color=vector(1,0,0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,1,0),color=vector(0,1,0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,0,1),color=vector(0,0,1),shaftwidth=0.02,opacity=0.4)
 mass = 0.0567
-v0 = 5
+v0 = 8
 radius = 0.06541
 bangle=45
 the= radians(bangle)
@@ -28,7 +28,7 @@ def
 bally = radius + floor.height/2
 ball_a = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0),interval=10,color=color.green,opacity=0.4) #不考慮空氣阻力的透明球
 ball_b = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0.2),interval=10,color=color.white) #考慮空氣阻力的球
-scene.camera.follow(ball_a)
+scene.camera.follow(ball_b)
 #ball a
 #ball_a.pos.y = ball_a.radius+floor.height/2
 ball_a.theta = the
@@ -73,6 +73,8 @@ while True:
 		ball_b.pos += ball_b.v*dt
 		ball_b.a = g + (-b*ball_b.v/ball_b.m)
 		ball_b.v += ball_b.a*dt
+
+
 
 
 print("球A飛了",ball_a.pos.x,"公尺",sep='')
