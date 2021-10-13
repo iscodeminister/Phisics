@@ -12,9 +12,9 @@ floor = box(pos=vec(0,0,0),length=L, height=0.01, width=8,opacity=0.5)
 arrow(axis=vector(1,0,0),color=vector(1,0,0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,1,0),color=vector(0,1,0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,0,1),color=vector(0,0,1),shaftwidth=0.02,opacity=0.4)
-mass = 0.005
+mass = 0.0567
 v0 = 5
-radius = 0.05
+radius = 0.06541
 bangle=45
 the= radians(bangle)
 g = vector(0,-9.8,0) 
@@ -28,8 +28,8 @@ def
 """
 bally = radius + floor.height/2
 ball_a = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0),interval=10,color=color.green,opacity=0.4) #不考慮空氣阻力的透明球
-ball_b = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0.2),interval=10,color=color.red) #考慮空氣阻力的球
-
+ball_b = sphere(radius=radius,make_trail=True,pos=vector(0,bally,0.2),interval=10,color=color.white) #考慮空氣阻力的球
+scene.camera.follow(ball_a)
 #ball a
 #ball_a.pos.y = ball_a.radius+floor.height/2
 ball_a.theta = the
@@ -63,7 +63,7 @@ eta_air = 1.81e-5
 b = 6*pi*eta_air*ball_b.radius	
 dt = 0.0001
 while True:
-	rate(1000)
+	rate(4000)
 	if ball_a.pos.y >= ball_a.y0 and ball_b.pos.y < ball_b.y0:
 	    break
 	if ball_a.pos.y >= ball_a.y0:
