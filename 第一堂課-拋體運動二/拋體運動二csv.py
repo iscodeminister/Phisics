@@ -7,9 +7,9 @@ import csv
 """
 L=15 #箱子長度
 scene = canvas(title="拋體運動二", width=800, height=400, x=0, y=0)
-floor = box(pos=vec(0,0,0),length=L, height=0.01, width=8,opacity=0.5)
-arrow(axis=vector(1,0,0),color=vector(1,0,0),shaftwidth=0.02,opacity=0.4)
-arrow(axis=vector(0,1,0),color=vector(0,1,0),shaftwidth=0.02,opacity=0.4)
+floor = box(pos=vec(0, 0, 0),length=L, height=0.01, width=8,opacity=0.5)
+arrow(axis=vector(1,0,0),color=vector(1, 0, 0),shaftwidth=0.02,opacity=0.4)
+arrow(axis=vector(0,1,0),color=vector(0, 1, 0),shaftwidth=0.02,opacity=0.4)
 arrow(axis=vector(0,0,1),color=vector(0,0,1),shaftwidth=0.02,opacity=0.4)
 mass = 0.0567
 v0 = 8
@@ -64,7 +64,7 @@ dt = 0.0001
 while True:
 	rate(4000)
 	if ball_a.pos.y >= ball_a.y0 and ball_b.pos.y < ball_b.y0:
-	    break
+		break
 	if ball_a.pos.y >= ball_a.y0:
 		ball_a.pos += ball_a.v*dt
 		ball_a.v += ball_a.a*dt
@@ -74,12 +74,12 @@ while True:
 		ball_b.a = g + (-b*ball_b.v/ball_b.m)
 		ball_b.v += ball_b.a*dt
 
-ballalabel = label(pos=ball_a.pos,
+ball_a_label = label(pos=ball_a.pos,
     text=ball_a.pos.x, xoffset=20,
     yoffset=12, space=ball_a.radius,
     height=8, border=1,
     font='sans')
-ballblabel = label(pos=ball_b.pos,
+ball_b_label = label(pos=ball_b.pos,
     text=ball_b.pos.x, xoffset=20,
     yoffset=25, space=ball_b.radius,
     height=8, border=1,
