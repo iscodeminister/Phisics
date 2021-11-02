@@ -35,6 +35,6 @@
       ![This is an image](/第一堂課-拋體運動三/1to89hf.png)<br>
       靠近一點看<br>
       ![This is an image](/第一堂課-拋體運動三/1to89hclose.png)<br>
-      再調用[csv](/第一堂課-拋體運動三/out1to89h.csv)度的確是最
+      再調用[csv](/第一堂課-拋體運動三/out1to89h.csv)發現32至33度是最遠的角度
   - 結論<br>
       經過python的作圖分析與csv之數據比對結果，得知``確實有影響``
