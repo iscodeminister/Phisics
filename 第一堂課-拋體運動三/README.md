@@ -30,11 +30,11 @@
       ![This is an image](/第一堂課-拋體運動三/1to89f.png)<br>
       再靠近一點看<br>
       ![This is an image](/第一堂課-拋體運動三/1to89close.png)<br>
-      確定45度並非最遠之拋射角，大概位於41至42度區間<br>
+      用[csv](/第一堂課-拋體運動三/out1to89.csv)確定45度並非最遠之拋射角，大概位於41至42度區間<br>
       接下來換成是鉛球<br>
       ![This is an image](/第一堂課-拋體運動三/1to89hf.png)<br>
-      看來結果有點意外，靠近一點看<br>
+      靠近一點看<br>
       ![This is an image](/第一堂課-拋體運動三/1to89hclose.png)<br>
-      45度的確是最
+      再調用[csv](/第一堂課-拋體運動三/out1to89h.csv)度的確是最
   - 結論<br>
       經過python的作圖分析與csv之數據比對結果，得知``確實有影響``
