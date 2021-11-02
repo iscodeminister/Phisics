@@ -58,7 +58,8 @@ for bangle in range(1,90):
 			ball_b.a = g + (1.225*-0.5*ball_b.v.mag2*0.5*pi*ball_b.radius**2*ball_b.v.norm())/ball_b.m
 			ball_b.v += ball_b.a*dt
 	ball_b.make_trail = False
-	print("球以角度",bangle,"飛了",ball_b.pos.x-end,"公尺",sep='')
-	Writer.writerow([bangle,ball_b.pos.x-end])
+	dist= ball_b.pos.x-end
+	print("球以角度",bangle,"飛了",dist,"公尺",sep='')
+	Writer.writerow([bangle,dist])
 
 csvFile.close()
