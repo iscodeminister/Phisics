@@ -14,68 +14,51 @@ arrow(axis=vector(0,0,1),color=vector(0, 0, 1),shaftwidth=0.02,opacity=0.4,pos=v
 mass = 0.280
 v0 = 15
 radius = 0.105
-bangle=45
-the= radians(bangle)
+
 g = vector(0,-9.8,0)
 
-csvFile = open('out.csv','w',newline='') #csv
+csvFile = open('out1to89.csv','w',newline='') #csv
 Writer = csv.writer(csvFile)
-Writer.writerow(['Ball','Distance'])
+Writer.writerow(['angle','Distance'])
 
 """
 def
 """
 bally = radius + floor.height/2
-ball_a = sphere(radius=radius,make_trail=True,pos=vector(end,bally,0),interval=10,color=color.green,opacity=0.4) #不考慮空氣阻力的透明球
-ball_b = sphere(radius=radius,make_trail=True,pos=vector(end,bally,0),interval=10,color=color.yellow) #考慮空氣阻力的球
-scene.camera.follow(ball_b)
-#ball a
-#ball_a.pos.y = ball_a.radius+floor.height/2
-ball_a.theta = the
-ball_a.y0 = ball_a.pos.y
-ball_a.m = mass
-ball_a.v0 = v0
-ball_a.v = vector(          
-	ball_a.v0*cos(ball_a.theta),
-	ball_a.v0*sin(ball_a.theta),
-	0
-)
-ball_a.a = g
 
-#ball b
-#ball_b.pos.y = ball_b.radius+floor.height/2
-ball_b.theta = the
-ball_b.y0 = ball_b.pos.y
-ball_b.m = mass
-ball_b.v0 = v0
-ball_b.v = vector(          
-	ball_b.v0*cos(ball_b.theta),
-	ball_b.v0*sin(ball_b.theta),
-	0
-)
-ball_b.a = g 
 
 """
 計算迴圈
 """
-b=1.225*-0.5*v0*v0*0.5*pi*radius*radius*ball_b.v.norm()
-dt = 0.0001
-while True:
-	rate(2000)
-	if ball_a.pos.y < ball_a.y0 and ball_b.pos.y < ball_b.y0:
-		break
+for bangle in range(1,90):
+	the= radians(bangle)
+	ball_b = sphere(radius=radius,make_trail=True,pos=vector(end,bally,0),interval=10,color=color.white) #考慮空氣阻力的球
+	if bangle==45:
+		ball_b.color=color.green
+	#scene.camera.follow(ball_b)
 
-	if ball_a.pos.y >= ball_a.y0:
-		ball_a.pos += ball_a.v*dt
-		ball_a.v += ball_a.a*dt
-	if ball_b.pos.y >= ball_b.y0:
-		ball_b.pos += ball_b.v*dt
-		ball_b.a = g + (b/ball_b.m)
-		ball_b.v += ball_b.a*dt
+	ball_b.theta = the
+	ball_b.y0 = ball_b.pos.y
+	ball_b.m = mass
+	ball_b.v0 = v0
+	ball_b.v = vector(          
+		ball_b.v0*cos(ball_b.theta),
+		ball_b.v0*sin(ball_b.theta),
+		0
+	)
+	ball_b.a = g
+	dt = 0.0001
+	while True:
+		rate(4000)
+		if ball_b.pos.y < ball_b.y0:
+			break
 
-print("球A飛了",ball_a.pos.x-end,"公尺",sep='')
-print("球B飛了",ball_b.pos.x-end,"公尺",sep='')
-Writer.writerow(["A",ball_a.pos.x])
-Writer.writerow(["B",ball_b.pos.x])
+		if ball_b.pos.y >= ball_b.y0:
+			ball_b.pos += ball_b.v*dt
+			ball_b.a = g + (1.225*-0.5*ball_b.v.mag2*0.5*pi*ball_b.radius**2*ball_b.v.norm())/ball_b.m
+			ball_b.v += ball_b.a*dt
+	ball_b.make_trail = False
+	print("球以角度",bangle,"飛了",ball_b.pos.x-end,"公尺",sep='')
+	Writer.writerow([bangle,ball_b.pos.x-end])
 
 csvFile.close()
