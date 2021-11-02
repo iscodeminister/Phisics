@@ -39,6 +39,7 @@ for bangle in range(1,90):
 
 	ball_b.theta = the
 	ball_b.y0 = ball_b.pos.y
+	ball_b.pos.y += 1.8
 	ball_b.m = mass
 	ball_b.v0 = v0
 	ball_b.v = vector(          
