@@ -15,8 +15,8 @@ arrow(axis=vector(0,0,1),color=vector(0, 0, 1),shaftwidth=0.02,opacity=0.4,pos=v
 mass = 0.280
 v0 = 15
 radius = 0.105
-bangle=45
-the= radians(bangle)
+angle=45
+the= radians(angle)
 g = vector(0,-9.8,0)
 
 csvFile = open('out.csv','w',newline='') #csv
@@ -73,8 +73,6 @@ while True:
 		ball_b.a = g + (1.2041*-0.5*ball_b.v.mag2*0.5*pi*ball_b.radius**2*ball_b.v.norm())/ball_b.m
 		ball_b.v += ball_b.a*dt
 
-"""
-counting section
 
 ball_a_label = label(pos=ball_a.pos,
     text=ball_a.pos.x-end, xoffset=20,
@@ -83,10 +81,9 @@ ball_a_label = label(pos=ball_a.pos,
     font='sans')
 ball_b_label = label(pos=ball_b.pos,
     text=ball_b.pos.x-end, xoffset=20,
-    yoffset=25, space=ball_b.radius,
+    yoffset=12, space=ball_b.radius,
     height=8, border=1,
     font='sans')
-"""
 print("球A飛了",ball_a.pos.x-end,"公尺",sep='')
 print("球B飛了",ball_b.pos.x-end,"公尺",sep='')
 print(ball_b.v.norm())
