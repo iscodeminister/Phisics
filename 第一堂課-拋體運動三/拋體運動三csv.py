@@ -86,8 +86,7 @@ ball_b_label = label(pos=ball_b.pos,
     font='sans')
 print("球A飛了",ball_a.pos.x-end,"公尺",sep='')
 print("球B飛了",ball_b.pos.x-end,"公尺",sep='')
-print(ball_b.v.norm())
-Writer.writerow(["A",ball_a.pos.x])
-Writer.writerow(["B",ball_b.pos.x])
+Writer.writerow(["A",ball_a.pos.x-end])
+Writer.writerow(["B",ball_b.pos.x-end])
 
 csvFile.close()
