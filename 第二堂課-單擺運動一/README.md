@@ -22,8 +22,9 @@
       這是使用矩形法做積分得到的結果<br>
       ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
       這是使用梯形法做積分得到的結果<br>
-      繼續測試其他初速，給定初速為15m/s，觀察運算結果<br>
-      ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
+      看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br>
+      ![This is an image](/第二堂課-單擺運動一/result1dt.png)<br>
+      ![This is an image](/第二堂課-單擺運動一/result2dt.png)<br>
       差異真的不大，繼續給更大的值(60m/s)<br>
       ![This is an image](/第二堂課-單擺運動一/result3.png)<br>
       終於有差了，但300多公尺還是差不到0.5公尺而已
