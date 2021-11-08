@@ -20,7 +20,7 @@
   - 做出來的結果<br>
       ![This is an image](/第二堂課-單擺運動一/result1.png)<br>
       這是使用矩形法做積分得到的結果<br>
-      ![This is an image](/第二堂課-單擺運動一/result2.csv)<br>
+      ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
       這是使用梯形法做積分得到的結果<br>
       繼續測試其他初速，給定初速為15m/s，觀察運算結果<br>
       ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
