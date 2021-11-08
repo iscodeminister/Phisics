@@ -1,3 +1,4 @@
+from numpy import VisibleDeprecationWarning
 from vpython import *
 import math
 
@@ -5,14 +6,14 @@ import math
 設計場景
 """
 scene = canvas(title="單擺運動一", width=1600, height=900, x=0, y=0)
-ceiling = box(pos=vec(0, 0, 0),length=2,
-    height=0.02,width=2,opacity=0.5)
 arrow(axis=vector(0,-1.5,0),color=vector(0, 1, 0),shaftwidth=0.01,opacity=0.4)
 count = 0
 while count<150:
     y = count/100
     box(pos=vector(0,-y,0),axis=vector(0,0.0001,0),color=color.red,height=0.02, width=0.001)
     count+=1
+ceiling = box(pos=vec(0, 0, 0),length=2,
+    height=0.02,width=2,opacity=0.5)
 g = vector(0,-9.8,0)
 rod = cylinder(
     axis=vector(0,-1,0),
@@ -50,7 +51,7 @@ bob.v = vector(0,0,0)
 bob.a = calcA(
     bob.pos,bob.v
 )
-scene.center =  vector(0,-rod.L0,0)
+scene.center = vector(0,-rod.L0,0)
 rod.axis = bob.pos-ceiling.pos
 """
 Compute
@@ -59,7 +60,7 @@ t = 0
 dt = 0.0005
 while t <50:
     rate(1000)
-    bob.pos += bob.v*dt
+    bob.pos += bob.v*dt+0.5*bob.a*dt*dt
     bob.v+=bob.a*dt
     bob.a = calcA(
         bob.pos,bob.v
