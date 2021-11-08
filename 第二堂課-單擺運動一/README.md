@@ -31,10 +31,10 @@
       <br>
       ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
       <br>
-      看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br>
+      看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br><br>
       ![This is an image](/第二堂課-單擺運動一/result1dt.png)<br>
-      ![This is an image](/第二堂課-單擺運動一/result2dt.png)<br>
-      差異還是看不大出來，我將dt調整為0.00005並加上刻度觀察90度處<br>
+      ![This is an image](/第二堂課-單擺運動一/result2dt.png)<br><br>
+      差異還是看不大出來，我將dt調整為0.00005並加上刻度觀察90度處<br><br>
       ![This is an image](/第二堂課-單擺運動一/result1pdtc.png)<br>
       ![This is an image](/第二堂課-單擺運動一/result2pdtc.png)<br>
       終於看出來了，梯形法能取得較高精準度<br>
