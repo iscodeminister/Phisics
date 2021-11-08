@@ -25,8 +25,9 @@
       看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br>
       ![This is an image](/第二堂課-單擺運動一/result1dt.png)<br>
       ![This is an image](/第二堂課-單擺運動一/result2dt.png)<br>
-      差異真的不大，繼續給更大的值(60m/s)<br>
-      ![This is an image](/第二堂課-單擺運動一/result3.png)<br>
+      差異還是看不大出來，我將dt調整為0.00005並加上刻度觀察90度處<br>
+      ![This is an image](/第二堂課-單擺運動一/result1pdtc.png)<br>
+      ![This is an image](/第二堂課-單擺運動一/result2pdtc.png)<br>
       終於有差了，但300多公尺還是差不到0.5公尺而已
   - 結論<br>
       經過python的作圖分析與csv之數據比對結果，得知`在只考慮簡單空氣阻力有無的情況下`**影響不大**
