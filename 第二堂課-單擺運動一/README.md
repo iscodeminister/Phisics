@@ -12,15 +12,15 @@
       用vpython繪製一個大平面(地板)，兩個待發射的球體，綠色半透明的不受空氣阻力，黃色實心的受線性空氣阻力<br>
       給定兩球的初速、重量、半徑以及重力常數後作運算[程式碼](/第一堂課-拋體運動二/拋體運動二csv.py)<br>
       ```rod = cylinder(
-    axis=vector(0,-1,0),
-    radius=0.0005,
-    opacity=0.5
-)
-bob = sphere(
-    radius = 0.025,
-    make_trail = True,
-    opacity = 0.5
-)
+        axis=vector(0,-1,0),
+        radius=0.0005,
+       opacity=0.5
+       )
+        bob = sphere(
+       radius = 0.025,
+       make_trail = True,
+       opacity = 0.5
+        )
       ``` 
       運算完之後以以圖表確認並輸出csv紀錄實驗數據<br><br>
   - 做出來的結果<br>
