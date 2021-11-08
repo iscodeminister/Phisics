@@ -18,14 +18,14 @@
       ``` 
       運算完之後以以圖表確認並輸出csv紀錄實驗數據<br><br>
   - 做出來的結果<br>
-      ![This is an image](/第一堂課-拋體運動二/result1.png)<br>
-      在實驗中看到線性空氣阻力不太顯著影響物體的飛行距離<br>
-      比對下輸出的[csv](/第一堂課-拋體運動二/out.csv)<br>
-      發現在初速為8時只有差0.0015公尺而已<br>
+      ![This is an image](/第二堂課-單擺運動一/result1.png)<br>
+      這是使用矩形法做積分得到的結果<br>
+      ![This is an image](/第二堂課-單擺運動一/result2.csv)<br>
+      這是使用梯形法做積分得到的結果<br>
       繼續測試其他初速，給定初速為15m/s，觀察運算結果<br>
-      ![This is an image](/第一堂課-拋體運動二/result2.png)<br>
+      ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
       差異真的不大，繼續給更大的值(60m/s)<br>
-      ![This is an image](/第一堂課-拋體運動二/result3.png)<br>
+      ![This is an image](/第二堂課-單擺運動一/result3.png)<br>
       終於有差了，但300多公尺還是差不到0.5公尺而已
   - 結論<br>
       經過python的作圖分析與csv之數據比對結果，得知`在只考慮簡單空氣阻力有無的情況下`**影響不大**
