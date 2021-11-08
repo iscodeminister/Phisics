@@ -26,9 +26,9 @@
       運算完之後確認實驗數據<br><br>
   - 做出來的結果<br>
       ![This is an image](/第二堂課-單擺運動一/result1.png)<br>
-      這是使用矩形法做積分得到的結果<br>
+      上圖是使用矩形法做積分得到的結果<br>
       ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
-      這是使用梯形法做積分得到的結果<br>
+      上圖是使用梯形法做積分得到的結果<br>
       看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br>
       ![This is an image](/第二堂課-單擺運動一/result1dt.png)<br>
       ![This is an image](/第二堂課-單擺運動一/result2dt.png)<br>
