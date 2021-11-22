@@ -86,10 +86,7 @@ Compute
 t = 0
 dt = 0.0005
 while t <50:
-    rate(1000)
+    rate(2000)
     bob.pos,bob.v,bob.a = nextValue(bob.pos,bob.v,calcA,t,dt)
-    if t>49.95:
-        if bob.pos.x == 0:
-            print("t值為",t,"y值為",bob.pos.y,sep='')
     rod.axis = bob.pos - ceiling.pos
     t += dt
