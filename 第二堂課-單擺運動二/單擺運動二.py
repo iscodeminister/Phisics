@@ -4,7 +4,7 @@ import math
 """
 設計場景
 """
-scene = canvas(title="單擺運動一", width=1600, height=900, x=0, y=0)
+scene = canvas(title="單擺運動二", width=1600, height=900, x=0, y=0)
 ceiling = box(pos=vec(0, 0, 0),length=2,
     height=0.02,width=2,opacity=0.5)
 arrow(axis=vector(0,-1.5,0),color=vector(0, 1, 0),shaftwidth=0.01,opacity=0.4)
@@ -24,7 +24,7 @@ bob = sphere(
     make_trail = True,
     opacity = 0.5
 )
-def calcA(r,v):
+def calcA(r,v,t):
     axis = r - ceiling.pos
     uaxis = axis.norm()
     ac = mag2(v)/mag(axis)
@@ -48,23 +48,47 @@ bob.pos=ceiling.pos + vector(
 )
 bob.v = vector(0,0,0)
 bob.a = calcA(
-    bob.pos,bob.v
+    bob.pos,bob.v,0
 )
 scene.center =  vector(0,-rod.L0,0)
 rod.axis = bob.pos-ceiling.pos
 """
+Runge-Kutta
+"""
+def nextValue(r,v,A,t,dt,a_now = None):
+    r1 = r
+    v1 = v
+    a1 = a_now
+    if a1 is None: a1 = A(r1,v1,t)
+    
+    dt2 = dt*0.5
+    r2 = r+dt2*v1
+    v2 = v+dt2*a1
+    a2 = A(r2,v2,t+dt2)
+    
+    r3 = r+dt2*v2
+    v3 = v+dt2*a2
+    a3 = A(r3,v3,t+dt2)
+    
+    r4 = r+dt*v3
+    v4 = v+dt*a3
+    a4 = A(r4,v4,t+dt)
+    
+    dt /= 6.0
+    r += (v1+(v2+v3)*2.0+v4)*dt
+    v += (a1+(a2+a3)*2.0+a4)*dt
+    
+    return (r,v,A(r,v,t+dt))
+
+"""
 Compute
 """
 t = 0
-dt = 0.001
+dt = 0.0005
 while t <50:
-    rate(4000)
-    bob.pos += bob.v*dt
-    bob.v+=bob.a*dt
-    bob.a = calcA(
-        bob.pos,bob.v
-    )
-    if t>49.85:
+    rate(1000)
+    bob.pos,bob.v,bob.a = nextValue(bob.pos,bob.v,calcA,t,dt)
+    if t>49.95:
         if bob.pos.x == 0:
             print("t值為",t,"y值為",bob.pos.y,sep='')
     rod.axis = bob.pos - ceiling.pos
