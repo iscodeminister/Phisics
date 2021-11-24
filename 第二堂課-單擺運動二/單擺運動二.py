@@ -86,7 +86,9 @@ Compute
 t = 0
 dt = 0.0005
 while t <50:
-    rate(2000)
+    rate(4000)
     bob.pos,bob.v,bob.a = nextValue(bob.pos,bob.v,calcA,t,dt)
     rod.axis = bob.pos - ceiling.pos
+    if t==49:
+        print(mag(bob.pos))
     t += dt
