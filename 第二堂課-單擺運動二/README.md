@@ -10,7 +10,7 @@
       並實驗計算量只多個幾倍，準確度卻能提高千倍萬倍的榮格-庫塔（Runge-Kutta）方法<br><br>
   - 如何做到那件事？<br>
       用vpython繪製一個大平面(天花板)，一條擺繩，跟一個擺錘<br>
-      給定兩球的角度、重量、半徑以及重力常數後作運算[程式碼](/第二堂課-單擺運動二/單擺運動二.py)<br>
+      給定兩球的角度、重量、半徑以及重力常數與榮格-庫塔方法後作運算[程式碼](/第二堂課-單擺運動二/單擺運動二.py)<br>
       ```
       rod = cylinder( #擺繩
       axis=vector(0,-1,0),
@@ -25,18 +25,17 @@
       ``` 
       運算完之後確認實驗數據<br><br>
   - 做出來的結果<br>
-      ![This is an image](/第二堂課-單擺運動一/result1.png)<br>
+      ![This is an image](/第二堂課-單擺運動二/result.png)<br>
       <br>
-      上圖是使用矩形法做積分得到的結果，而下圖是使用梯形法做積分得到的結果<br>
+      上圖是使用榮格-庫塔法做積分得到的結果<br>
+      比起前面的矩形或梯形法擁有更高的精確度<br>
+      線條幾乎沒有變粗，放大一點看<br>
+      ![This is an image](/第二堂課-單擺運動二/resultdtc.png)<br>
       <br>
-      ![This is an image](/第二堂課-單擺運動一/result2.png)<br>
+      ![This is an image](/第二堂課-單擺運動二/resultddtc.png)<br>
       <br>
-      看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br><br>
-      ![This is an image](/第二堂課-單擺運動一/result1dt.png)<br>
-      ![This is an image](/第二堂課-單擺運動一/result2dt.png)<br><br>
-      差異還是看不大出來，我將dt調整為0.00005並加上刻度觀察90度處<br><br>
-      ![This is an image](/第二堂課-單擺運動一/result1pdtc.png)<br>
-      ![This is an image](/第二堂課-單擺運動一/result2pdtc.png)<br>
-      終於看出來了，下圖(梯形法)能取得較高精準度(約精準45%)<br>
+      ![This is an image](/第二堂課-單擺運動二/resultd3tc.png)<br>
+      <br>
+      看起來梯形法似乎有比較精準一點，但不大明顯，我把dt改成0.001試試<br>
   - 結論<br>
       經過python的作圖分析結果，得知`當使用歐拉法時`**梯形法比矩形法更佳精確**
