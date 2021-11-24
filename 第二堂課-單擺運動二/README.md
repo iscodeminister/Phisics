@@ -29,7 +29,7 @@
       <br>
       上圖是使用榮格-庫塔法做積分得到的結果<br>
       比起前面的矩形或梯形法擁有更高的精確度<br>
-      線條幾乎沒有變粗，放大一點看<br>
+      線條幾乎沒有變粗，放大一點看<br><br>
       ![This is an image](/第二堂課-單擺運動二/resultdtc.png)<br>
       <br>
       ![This is an image](/第二堂課-單擺運動二/resultddtc.png)<br>
