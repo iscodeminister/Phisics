@@ -4,11 +4,11 @@ import math
 """
 設計場景
 """
-scene = canvas(title="單擺運動三", width=1600, height=900, x=0, y=0)
+scene = canvas(title="單擺運動三", width=1600, height=900)
 ceiling = box(pos=vec(0, 0, 0),length=2,
     height=0.02,width=2,opacity=0.5)
-arrow(axis=vector(0,-1.5,0),color=vector(0, 1, 0),shaftwidth=0.01,opacity=0.4)
-g = vector(0,-9.8,0)
+#arrow(axis=vector(0,-1.5,0),color=vector(0, 1, 0),shaftwidth=0.01,opacity=0.4)
+scene.g = vector(0,-9.8,0)
 rod = cylinder(
     axis=vector(0,-1,0),
     radius=0.0005,
@@ -19,37 +19,38 @@ bob = sphere(
     make_trail = True,
     opacity = 0.5
 )
+def conicalSpeed(L,A):
+    return sqrt(L*9.8*sin(A)*tan(A))
 def calcA(r,v,t):
     axis = r - ceiling.pos
     uaxis = axis.norm()
     ac = mag2(v)/mag(axis)
-    at = g-g.dot(uaxis)*uaxis
+    at = scene.g-scene.g.dot(uaxis)*uaxis
     return at-ac*uaxis
-def conicalSpeed(L,A):
-    return sqrt(L*9.8*sin(A)*tan(A))
-rmass = 0.01
+
 angle=20
 theta= radians(angle)
 
 """
 def
 """
-rod.mass = rmass
+rod.mass = 0.01
 rod.theta0 = theta
 rod.phi0 = radians(0)
 rod.L0 = 1
-bob.mass = 0.2
+bob.mass = 0.15
 bob.pos=ceiling.pos + vector(
     rod.L0*sin(pi-rod.theta0)*cos(rod.phi0),
     rod.L0*sin(pi-rod.theta0)*sin(rod.phi0),
     cos(pi-rod.theta0)
 )
-bob.v = conicalSpeed(rod.L0,rod.theta0)*3*rod.axis.cross(g).norm()
+rod.axis = bob.pos-ceiling.pos
+bob.v = conicalSpeed(rod.L0,rod.theta0)*3*rod.axis.cross(scene.g).norm()
 bob.a = calcA(
     bob.pos,bob.v,0
 )
 #scene.center =  vector(0,-rod.L0,0)
-rod.axis = bob.pos-ceiling.pos
+
 """
 Runge-Kutta
 """
@@ -89,5 +90,6 @@ while t <50:
     #if t>49.95:
     #    if bob.pos.x == 0:
     #        print("t值為",t,"y值為",bob.pos.y,sep='')
+    print(bob.pos.y)
     rod.axis = bob.pos - ceiling.pos
     t += dt
