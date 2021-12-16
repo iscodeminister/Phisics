@@ -12,7 +12,7 @@
       測試簡化後的二次空氣阻力會不會明顯影響實驗結果<br><br>
   - 如何做到那件事？<br>
       用vpython繪製一個大平面(地板)，兩個待發射的排球，綠色半透明的不受空氣阻力，黃色實心的受線性空氣阻力<br>
-      給定兩球的初速、重量、半徑、仰角以及Cd常數後作運算[程式碼](/第一堂課-拋體運動三/拋體運動三csv.py)<br>
+      給定兩球的初速、重量、半徑、仰角以及Cd常數後作運算[程式碼](/第一堂課-拋體運動3/拋體運動三csv.py)<br>
       ```
       mass = 0.280 #排球的重量
       v0 = 15 #假定初速
@@ -22,19 +22,19 @@
       ``` 
       運算完之後以以圖表確認並輸出csv紀錄實驗數據<br><br>
   - 做出來的結果<br>
-      ![This is an image](/第一堂課-拋體運動三/result1.png)<br>
+      ![This is an image](/第一堂課-拋體運動3/result1.png)<br>
       在實驗中看到二次空氣阻力顯著影響排球的飛行距離<br>
-      比對下輸出的[csv](/第一堂課-拋體運動三/out.csv)<br>
+      比對下輸出的[csv](/第一堂課-拋體運動3/out.csv)<br>
       發現在初速為15時就差了8.6473公尺<br>
       繼續測試其他角度，給定1至89，觀察運算結果<br>
-      ![This is an image](/第一堂課-拋體運動三/1to89f.png)<br>
+      ![This is an image](/第一堂課-拋體運動3/1to89f.png)<br>
       再靠近一點看<br>
-      ![This is an image](/第一堂課-拋體運動三/1to89close.png)<br>
-      用[csv](/第一堂課-拋體運動三/out1to89.csv)確定45度並非最遠之拋射角，大概位於41至42度區間<br>
+      ![This is an image](/第一堂課-拋體運動3/1to89close.png)<br>
+      用[csv](/第一堂課-拋體運動3/out1to89.csv)確定45度並非最遠之拋射角，大概位於41至42度區間<br>
       接下來換成是鉛球<br>
-      ![This is an image](/第一堂課-拋體運動三/1to89hf.png)<br>
+      ![This is an image](/第一堂課-拋體運動3/1to89hf.png)<br>
       靠近一點看<br>
-      ![This is an image](/第一堂課-拋體運動三/1to89hclose.png)<br>
-      再調用[csv](/第一堂課-拋體運動三/out1to89h.csv)發現32至33度是最遠的角度
+      ![This is an image](/第一堂課-拋體運動3/1to89hclose.png)<br>
+      再調用[csv](/第一堂課-拋體運動3/out1to89h.csv)發現32至33度是最遠的角度
   - 結論<br>
       經過python的作圖分析與csv之數據比對結果，得知``確實有影響``
