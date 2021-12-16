@@ -28,7 +28,7 @@ def calcA(r,v,t):
     at = scene.g-scene.g.dot(uaxis)*uaxis
     return at-ac*uaxis
 
-angle=20
+angle=20.0
 theta= radians(angle)
 
 """
@@ -36,16 +36,17 @@ def
 """
 rod.mass = 0.01
 rod.theta0 = theta
-rod.phi0 = radians(0)
-rod.L0 = 1
-bob.mass = 0.15
+rod.phi0 = radians(0.0)
+rod.L0 = 1.0
+bob.mass = 0.2
 bob.pos=ceiling.pos + vector(
     rod.L0*sin(pi-rod.theta0)*cos(rod.phi0),
     rod.L0*sin(pi-rod.theta0)*sin(rod.phi0),
     cos(pi-rod.theta0)
 )
 rod.axis = bob.pos-ceiling.pos
-bob.v = conicalSpeed(rod.L0,rod.theta0)*3*rod.axis.cross(scene.g).norm()
+#bob.v = vector(0,0,1.1045155)
+bob.v = conicalSpeed(rod.L0,theta)*3*rod.axis.cross(scene.g).norm()
 bob.a = calcA(
     bob.pos,bob.v,0
 )
@@ -90,6 +91,6 @@ while t <50:
     #if t>49.95:
     #    if bob.pos.x == 0:
     #        print("t值為",t,"y值為",bob.pos.y,sep='')
-    print(bob.pos.y)
+    #print(bob.pos.y)
     rod.axis = bob.pos - ceiling.pos
     t += dt
