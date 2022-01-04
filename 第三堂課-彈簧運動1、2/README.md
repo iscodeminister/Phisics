@@ -12,13 +12,13 @@
       給定彈簧及球的半徑以及重力常數與榮格-庫塔方法後作運算[程式碼](/第三堂課-彈簧運動1、2/彈簧運動集合.py)<br>
       ```
       spring = helix(pos=floor.pos,
-    axis=vector(floor.length/4,0,0),
-	radius=0.03, coils=20
-    )
-    ball = sphere(
-    pos=spring.pos+spring.axis,
-	radius=0.1, make_trail=False, interval=30
-)
+      axis=vector(floor.length/4,0,0),
+	  radius=0.03, coils=20
+      )
+      ball = sphere(
+      pos=spring.pos+spring.axis,
+	  radius=0.1, make_trail=False, interval=30
+      )
       ``` 
       運算完之後確認實驗數據<br><br>
   - 做出來的結果<br><br>
