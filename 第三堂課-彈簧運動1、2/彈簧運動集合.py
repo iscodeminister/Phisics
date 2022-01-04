@@ -5,6 +5,8 @@ import math
 
 #scene = canvas(title="彈簧運動一", width=1600, height=900)
 floor = box(width=1, height=0.02, length=2, opacity=0.5)
+arrow(axis=vector(1,0,0),color=vector(1, 0, 0),shaftwidth=0.02,opacity=0.4)
+arrow(axis=vector(0,1,0),color=vector(0, 1, 0),shaftwidth=0.02,opacity=0.4)
 spring = helix(pos=floor.pos,
     axis=vector(floor.length/4,0,0),
 	radius=0.03, coils=20
@@ -64,11 +66,17 @@ def nextValue(r,v,A,t,dt,a_now = None):
 "graph"
 xt = graph(title="<i>x</i>-<i>t</i> plot", width=600, height=450, x=0, y=400,
                xtitle="<i>t</i> (s)", ytitle="<i>x</i> (m)")
-vt = graph(title="<i>v</i>-<i>t</i> plot", width=600, height=450, x=0, y=850,
-                xtitle="<i>t</i> (s)", ytitle="<i>v</i> (m/s)")
+keuet = graph(title="力學能", width=600, height=450, x=0, y=850,
+                xtitle="<i>t</i> (s)", ytitle="<i>KE and UE</i>  (J)")
+et = graph(title="總力學能", width=600, height=450, x=0, y=850,
+                xtitle="<i>t</i> (s)", ytitle="<i>v</i>  (J)")
 x_t = gcurve(label='x 位置 x10',color=color.red, graph=xt)
-v_t = gcurve(label='x 速度',color=color.green, graph=vt)
-a_t = gcurve(label='x 加速度',color=color.blue)
+#v_t = gcurve(label='x 速度',color=color.green, graph=vt)
+#a_t = gcurve(label='x 加速度',color=color.blue)
+ke_t = gcurve(label='動能',color=color.red, graph=keuet)
+ue_t = gcurve(label='位能',color=color.green, graph=keuet)
+E_t = gcurve(label='總力學能',color=color.blue, graph=et)
+
 
 "count"
 dt = 0.0001
@@ -81,7 +89,13 @@ while t<3:
     spring.axis = ball.pos-spring.pos
 
     x_t.plot(t,ball.pos.x*10)
-    v_t.plot(t,ball.v.x)
-    a_t.plot(t,ball.a.x)
+    #v_t.plot(t,ball.v.x)
+    #a_t.plot(t,ball.a.x)
+    ball.ke = 0.5*ball.mass*ball.v.mag2
+    spring.ue = 0.5*spring.k*(spring.axis.mag-spring.L0)**2
+
+    ke_t.plot(t,ball.ke)
+    ue_t.plot(t,spring.ue)
+    E_t.plot(t,ball.ke+spring.ue)
     
     t += dt
