@@ -69,7 +69,7 @@ xt = graph(title="<i>x</i>-<i>t</i> plot", width=600, height=450, x=0, y=400,
 keuet = graph(title="力學能", width=600, height=450, x=0, y=850,
                 xtitle="<i>t</i> (s)", ytitle="<i>KE and UE</i>  (J)")
 et = graph(title="總力學能", width=600, height=450, x=0, y=850,
-                xtitle="<i>t</i> (s)", ytitle="<i>v</i>  (J)")
+                xtitle="<i>t</i> (s)", ytitle="<i>E</i>  (J)")
 x_t = gcurve(label='x 位置 x10',color=color.red, graph=xt)
 #v_t = gcurve(label='x 速度',color=color.green, graph=vt)
 #a_t = gcurve(label='x 加速度',color=color.blue)
