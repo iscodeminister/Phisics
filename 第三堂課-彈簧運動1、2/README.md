@@ -28,9 +28,7 @@
       但我們看不到任何數據跟關係<br>
       所以要製作數據圖<br><br>
       ![This is an image](/第三堂課-彈簧運動1、2/xtplot.png)<br>
-      <br>
       ![This is an image](/第三堂課-彈簧運動1、2/keue.png)<br>
-      <br>
       ![This is an image](/第三堂課-彈簧運動1、2/et.png)<br>
       <br>
       看起來榮格-庫塔法幾乎沒有誤差，取位置的絕對值恆為1<br>
