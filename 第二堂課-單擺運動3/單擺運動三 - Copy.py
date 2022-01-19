@@ -1,65 +1,57 @@
 from vpython import *
 import math
 
+GlowScript 3.2 VPython
+
 """
 設計場景
 """
-scene.range=1.2                             # 設定攝影機範圍在正負 1.2 公尺
-scene.g = vector(0,-9.8,0)                  # 重力加速度
-
-ceiling = box(                              # 產生一個扁平盒子代表天花板，取名為 ceiling（就是天花板）
-    width=2,                                # 寬度（z-方向）為 2 公尺
-	height=0.022,                           # 高度（y-方向）為 0.022 公尺（2.2 公分）
-	length=2,                               # 長度（x-方向）為 2 公尺
-	opacity=0.3                             # 【不】透明度為 0.3（頗透明）
+scene = canvas(title="單擺運動三", width=1600, height=900)
+ceiling = box(pos=vec(0, 0, 0),length=2,
+    height=0.02,width=2,opacity=0.5)
+#arrow(axis=vector(0,-1.5,0),color=vector(0, 1, 0),shaftwidth=0.01,opacity=0.4)
+scene.g = vector(0,-9.8,0)
+rod = cylinder(
+    axis=vector(0,-1,0),
+    radius=0.0005,
+    opacity=0.5
 )
-
-rod = cylinder(                             # 產生一個細圓柱代表擺繩，取名為 rod（桿）
-	axis=vector(0,-1,0),                    # 指向 -y 方向（下方）
-	radius=0.0005,                          # 半徑為 0.0005 公尺（0.5 公厘）
-	opacity=0.5                             # 【不】透明度為 0.5（半透明）
+bob = sphere(
+    radius = 0.025,
+    make_trail = True,
+    opacity = 0.5
 )
-
-bob = sphere(                               # 產生一個球代表擺錘，取名為 bob（就是擺錘）
-	radius=0.025,                           # 半徑為 0.025 公尺（2.5 公分）
-	make_trail=True,                        # 要留下軌跡
-	opacity=0.5                             # 【不】透明度為 0.5
-)
+def conicalSpeed(L,A):
+    return sqrt(L*9.8*sin(A)*tan(A))
 def calcA(r,v,t):
     axis = r - ceiling.pos
     uaxis = axis.norm()
     ac = mag2(v)/mag(axis)
     at = scene.g-scene.g.dot(uaxis)*uaxis
     return at-ac*uaxis
-def conicalSpeed(L,A):
-    return sqrt(L*9.8*sin(A)*tan(A))
-rmass = 0.01
-angle=20
+
+angle=20.0
 theta= radians(angle)
 
 """
 def
 """
-rod.mass = 0.01                             # 擺繩質量
-rod.L0 = 1                                  # 擺繩原長
-rod.theta0 = 20.0*pi/180.0                  # 初始 theta 角（從 -z 軸量起），可隨意更改看效果
-rod.phi0 = 0.0*pi/180.0                     # 初始 phi 角（經度），可隨意更改看效果
-
-bob.pos=ceiling.pos+vector(                 # 設定擺錘初始位置
-    rod.L0*sin(pi-rod.theta0)*cos(rod.phi0),# 根據擺繩的初始角度來計算
-    rod.L0*sin(pi-rod.theta0)*sin(rod.phi0),# 由於單擺的 theta 角定義是從 -z 軸量起的，但這裡我們用的是球座標
-    cos(pi-rod.theta0)						# 公式來計算位置，角度得從 +z 軸量起，所以要換算成 pi-theta
+v0=2
+rod.mass = 0.01
+rod.theta0 = theta
+rod.phi0 = radians(0.0)
+rod.L0 = 1.0
+bob.mass = 0.2
+bob.pos=ceiling.pos + vector(
+    rod.L0*sin(pi-rod.theta0)*cos(rod.phi0),
+    rod.L0*sin(pi-rod.theta0)*sin(rod.phi0),
+    cos(pi-rod.theta0)
 )
-bob.mass = 0.2                              # 擺錘質量 0.15 kg (150 g)
-
-rod.axis = bob.pos-ceiling.pos              # 調整擺繩讓它連結擺錘與天花板
-bob.velocity = conicalSpeed(                # 圓錐擺的速率
-    rod.L0,rod.theta0
-)*3*rod.axis.cross(scene.g).norm()          # 沿著 y-方向
-
-bob.acceleration = calcA(                   # 初始加速度
-    bob.pos,bob.velocity,0
-)
+rod.axis = bob.pos-ceiling.pos
+#bob.v = vector(0,0,1.1045155)
+bob.v = conicalSpeed(rod.L0,rod.theta0-3/2*pi)*v0*rod.axis.cross(scene.g).norm()
+bob.a = calcA(bob.pos,bob.v,0)
+#scene.center =  vector(0,-rod.L0,0)
 
 """
 Runge-Kutta
@@ -93,14 +85,13 @@ def nextValue(r,v,A,t,dt,a_now = None):
 Compute
 """
 t = 0
-dt = 0.001                                  # 時間間隔
-while t < 50:
-    rate(1000)                              # 每秒最多畫面數，慢一點方便觀察
-    
-    bob.pos,bob.velocity,bob.acceleration = nextValue(
-        bob.pos,bob.velocity,calcA,t,dt
-    )
-    
-    #scene.center = bob.pos                 # 攝影機聚焦在擺錘（可以極近距離觀察）
-    rod.axis = bob.pos - ceiling.pos        # 更新擺繩
-    t += dt                                 # 紀錄時間
+dt = 0.0005
+while t <50:
+    rate(1000)
+    bob.pos,bob.v,bob.a = nextValue(bob.pos,bob.v,calcA,t,dt)
+    #if t>49.95:
+    #    if bob.pos.x == 0:
+    #        print("t值為",t,"y值為",bob.pos.y,sep='')
+    #print(bob.pos.y)
+    rod.axis = bob.pos - ceiling.pos
+    t += dt
